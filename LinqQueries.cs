@@ -15,4 +15,14 @@ public class LinqQueries
     {
         return CollectionBooks;
     }
+    public IEnumerable<Book> BooksAfter2000()
+    {
+        //return CollectionBooks.Where(p=> p.PublishedDate.Year>2000); //extension method
+        return from l in CollectionBooks  where l.PublishedDate.Year >2000 select l; //query expresion
+    }
+    public IEnumerable<Book> moreOf250PagesAndTitleInAction()
+    {
+        //return CollectionBooks.Where(p=> p.PageCount > 250 && p.Title.Contains("in Action")); //extension method
+        return from l in CollectionBooks  where l.PageCount >250  && l.Title.Contains("in Action") select l; //query expresion
+    }
 }
