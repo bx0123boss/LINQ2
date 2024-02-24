@@ -14,6 +14,8 @@ Console.WriteLine($"Todos los libros tienen status? - {queries.AllBooksHasStatus
 //algún libro se imprimmió en 2005
 Console.WriteLine($"Algún libro se imprimmió en 2005? - {queries.SomeOfBookWasPublishedIn2005()}");
 
+PrintValues(queries.BooksHas450PagesDescending());
+
 void PrintValues(IEnumerable<Book> BookList)
 {
     Console.WriteLine("{0,-60} {1,9} {2, 11}\n", "Titulo", "N. Paginas", "Fecha Publicación" );
