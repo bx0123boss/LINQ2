@@ -12,3 +12,4 @@ C:\platzi\LINQ\obj\Debug\net8.0\refint\LINQ.dll
 C:\platzi\LINQ\obj\Debug\net8.0\LINQ.pdb
 C:\platzi\LINQ\obj\Debug\net8.0\LINQ.genruntimeconfig.cache
 C:\platzi\LINQ\obj\Debug\net8.0\ref\LINQ.dll
+C:\platzi\LINQ\obj\Debug\net8.0\LINQ.sourcelink.json
