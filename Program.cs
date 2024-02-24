@@ -1,6 +1,12 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System.Linq;
-var frutas = new String[]{ "sandia", "fresa", "Mango", "Mango de azucar", "Mango Tomy"};
-var MangoList = frutas.Where(p=> p.StartsWith("Mango")).ToList();
-MangoList.ForEach(p => Console.WriteLine(p));
+﻿using System.Linq;
 
+LinqQueries queries = new LinqQueries();
+PrintValues(queries.AllColletion());
+void PrintValues(IEnumerable<Book> BookList)
+{
+    Console.WriteLine("{0,-60} {1,9} {2, 11}\n", "Titulo", "N. Paginas", "Fecha Publicación" );
+    foreach(var item in BookList)
+    {
+        Console.WriteLine("{0,-60} {1,9} {2, 11}", item.Title, item.PageCount, item.PublishedDate.ToShortDateString());
+    }
+}

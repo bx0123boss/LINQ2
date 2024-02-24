@@ -7,9 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGropu>
-    <Content Include="books.json/>
-  </ItemGropu>
+  <ItemGroup>
+    <Content Include="books.json"/>
+  </ItemGroup>
   
 
 </Project>
