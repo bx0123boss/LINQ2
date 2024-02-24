@@ -25,4 +25,13 @@ public class LinqQueries
         //return CollectionBooks.Where(p=> p.PageCount > 250 && p.Title.Contains("in Action")); //extension method
         return from l in CollectionBooks  where l.PageCount >250  && l.Title.Contains("in Action") select l; //query expresion
     }
+    public bool AllBooksHasStatus()
+    {
+        return CollectionBooks.All(p => p.Status!= string.Empty);
+    }
+
+    public bool SomeOfBookWasPublishedIn2005()
+    {
+        return CollectionBooks.Any(p=>p.PublishedDate.Year == 2005);
+    }
 }
