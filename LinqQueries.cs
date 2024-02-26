@@ -48,4 +48,19 @@ public class LinqQueries
     {
         return CollectionBooks.Where(p=> p.PageCount >450).OrderByDescending(P => P.PageCount);
     }
+     public IEnumerable<Book> ThreeFirstBooksOfJavaByDescending()
+    {
+        return CollectionBooks
+        .Where(p=> p.Categories.Contains("Java"))
+        .OrderBy(p => p.PublishedDate)
+        .TakeLast(3);
+    }
+    public IEnumerable<Book> ThirdAndFourthBookMore400Pages()
+    {
+        return CollectionBooks
+        .Where(p=> p.PageCount > 400)
+        .Take(4)
+        .Skip(2);
+        
+    }
 }
