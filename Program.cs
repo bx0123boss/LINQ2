@@ -34,6 +34,9 @@ Console.WriteLine($"La suma de paginas es: {queries.SumOfOPagesBw0and500()}");
 
 //titulos de libros
 Console.WriteLine($"Libros publicados después del 2015: {queries.BooksNameAfter2015()}");
+
+//promedio de caracteres de titulos
+Console.WriteLine($"promedio de caracteres de titulos: {queries.PromedioCharactersTitle()}");
 void PrintValues(IEnumerable<Book> BookList)
 {
     Console.WriteLine("{0,-60} {1,9} {2, 11}\n", "Titulo", "N. Paginas", "Fecha Publicación" );
