@@ -16,6 +16,24 @@ Console.WriteLine($"Algún libro se imprimmió en 2005? - {queries.SomeOfBookWas
 
 PrintValues(queries.ThirdAndFourthBookMore400Pages());
 
+
+//tres primeros libros filtrados con Select
+PrintValues(queries.ThreeFirstBooks());
+Console.WriteLine($"Cantidad de libros que tienen entre 200 y 500 paginas: {queries.CantityOfBooksBetween200and500Pages()}");
+
+//libro con mayor numero de paginas
+Console.WriteLine($"El libro con el mayor numero de paginas tiene: {queries.MaxNumOfPages()}");
+//fecha de publicacion menor de todos los libros
+Console.WriteLine($"Fecha de publicación menor: {queries.DatePublishedMin()}");
+//libro con menor numero de paginas
+var bookMin = queries.BookMDateMax();
+Console.WriteLine($"{bookMin.Title} - {bookMin.PageCount}");
+
+//suma de pagina de libros entre  0 y 500
+Console.WriteLine($"La suma de paginas es: {queries.SumOfOPagesBw0and500()}");
+
+//titulos de libros
+Console.WriteLine($"Libros publicados después del 2015: {queries.BooksNameAfter2015()}");
 void PrintValues(IEnumerable<Book> BookList)
 {
     Console.WriteLine("{0,-60} {1,9} {2, 11}\n", "Titulo", "N. Paginas", "Fecha Publicación" );

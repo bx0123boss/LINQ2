@@ -1,3 +1,6 @@
+using System.Reflection;
+using System.Transactions;
+
 public class LinqQueries
 {
     private List<Book> CollectionBooks = new List<Book>();
@@ -49,7 +52,7 @@ public class LinqQueries
         return CollectionBooks.Where(p=> p.PageCount >450).OrderByDescending(P => P.PageCount);
     }
      public IEnumerable<Book> ThreeFirstBooksOfJavaByDescending()
-    {
+    { 
         return CollectionBooks
         .Where(p=> p.Categories.Contains("Java"))
         .OrderBy(p => p.PublishedDate)
@@ -62,5 +65,49 @@ public class LinqQueries
         .Take(4)
         .Skip(2);
         
+    }
+    public IEnumerable<Book> ThreeFirstBooks()
+    {
+       return CollectionBooks.Take(3)
+        .Select(p=> new Book() {
+           Title= p.Title, PageCount = p.PageCount
+        });
+    }
+    public int CantityOfBooksBetween200and500Pages()
+    {
+        return CollectionBooks.Count(p=> p.PageCount >= 200 && p.PageCount <=500);
+    }
+    public DateTime DatePublishedMin()
+    {
+        return CollectionBooks.Min(p => p.PublishedDate);
+    }
+    public int MaxNumOfPages()
+    {
+        return CollectionBooks.Max(p=>p.PageCount);
+    }
+    public Book BookMinPages()
+    {
+        return CollectionBooks.Where(p=> p.PageCount >0).MinBy(p=> p.PageCount);
+    }
+    public Book BookMDateMax()
+    {
+        return CollectionBooks.MaxBy(p=> p.PublishedDate);
+    }
+    public int SumOfOPagesBw0and500() 
+    {
+        return CollectionBooks.Where(p=> p.PageCount >=0 && p.PageCount <=500).Sum(p => p.PageCount);
+    }
+    public string BooksNameAfter2015()
+    {
+        return CollectionBooks
+        .Where(p=>p.PublishedDate.Year >2015)
+        .Aggregate("", (TitulosLibros, next) =>
+        {
+            if(TitulosLibros != string.Empty)
+                TitulosLibros += " - " + next.Title;
+            else
+                TitulosLibros +=  next.Title;
+            return TitulosLibros;
+        });
     }
 }
