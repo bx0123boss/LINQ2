@@ -125,4 +125,10 @@ public class LinqQueries
     {
         return CollectionBooks.ToLookup(p=> p.Title[0], p=>p);
     }
+    public IEnumerable<Book> BooksAfter2005WithMore500Pages()
+    {
+        var BooksAfter2005 = CollectionBooks.Where(p=> p.PublishedDate.Year >2005);
+        var BooksMore500Pages = CollectionBooks.Where(p=> p.PageCount >500);
+        return BooksAfter2005.Join(BooksMore500Pages, p=> p.Title, x=> x.Title, (p,x) => p);
+    }
 }

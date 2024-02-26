@@ -43,6 +43,8 @@ Console.WriteLine($"promedio de caracteres de titulos: {queries.PromedioCharacte
 
 //Diccionario de libros agrupados por primera letra de libros
 printDictionary(queries.DictionaryBookByLetter(), 's');
+
+PrintValues(queries.BooksAfter2005WithMore500Pages());
 void PrintValues(IEnumerable<Book> BookList)
 {
     Console.WriteLine("{0,-60} {1,9} {2, 11}\n", "Titulo", "N. Paginas", "Fecha Publicación" );
